@@ -218,6 +218,7 @@ def decrypt(in_dir, out_dir):
     
     # clean tmp
     shutil.rmtree(TMPDIR)
+    cleanFiles(decrypt=True)
 
 #======================================================
 def decrypt_file(file, file_key, org_name, in_dir, out_dir):
@@ -303,7 +304,7 @@ def getNewFiles():
 #======================================================
 def getDecryptingFiles(dir):
     for item in os.listdir(dir):
-        if not item[0] = ".":
+        if not item[0] == ".":
             mtch = re.match(r'(.*)\.key\.enc$', item)
             if mtch:
                 file_key = mtch.group(0)
@@ -328,10 +329,14 @@ def getEncryptedKeyFileName(input):
 def removeFile(file):
     os.remove(file)
 
-def cleanFiles():
+def cleanFiles(decrypt=False):
     for file in os.listdir(OUTPUTDIR):
-        if not file.endswith(".enc"):
-            removeFile(OUTPUTDIR+"/"+file)
+        if not decrypt:
+            if not file.endswith(".enc"):
+                removeFile(OUTPUTDIR+"/"+file)
+        else:
+            if file.endswith(".enc"):
+                removeFile(OUTPUTDIR+"/"+file)
 
 
 
