@@ -195,6 +195,7 @@ def encrypt_file(source):
 
     # clean tmp
     removeFile(keyfile)
+    cleanFiles()
 
 #======================================================
 def decrypt(in_dir, out_dir):
@@ -326,7 +327,10 @@ def getEncryptedKeyFileName(input):
 def removeFile(file):
     os.remove(file)
 
-
+def cleanFiles():
+    for file in os.listdir(OUTPUTDIR):
+        if not file.endswith(".enc"):
+            removeFile(OUTPUTDIR+"/"+file)
 
 
 
