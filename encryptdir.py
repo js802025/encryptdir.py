@@ -303,13 +303,14 @@ def getNewFiles():
 #======================================================
 def getDecryptingFiles(dir):
     for item in os.listdir(dir):
-        mtch = re.match(r'(.*)\.key\.enc$', item)
-        if mtch:
-            file_key = mtch.group(0)
-            file = '{0}.gz.enc'.format(mtch.group(1))
+        if not item[0] = ".":
+            mtch = re.match(r'(.*)\.key\.enc$', item)
+            if mtch:
+                file_key = mtch.group(0)
+                file = '{0}.gz.enc'.format(mtch.group(1))
 
-            if os.path.exists('{0}/{1}'.format(dir, file)):
-                yield file, file_key, mtch.group(1)
+                if os.path.exists('{0}/{1}'.format(dir, file)):
+                    yield file, file_key, mtch.group(1)
 
 #======================================================
 def getOutputFileName(input):
