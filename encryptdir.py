@@ -10,7 +10,7 @@ from subprocess import call
 
 
 # default input folder only for encrypting
-INPUTDIR="./input"
+INPUTDIR="~/Downloads"
 # default output folder only for encrypting
 OUTPUTDIR="./output"
 # default temp folder for en-/decrypting
