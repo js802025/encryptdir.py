@@ -10,9 +10,9 @@ from subprocess import call
 
 
 # default input folder only for encrypting
-INPUTDIR="~/Downloads"
+INPUTDIR="/User/{}/Downloads".format(os.getlogin())
 # default output folder only for encrypting
-OUTPUTDIR="./output"
+OUTPUTDIR="/User/{}/Downloads".format(os.getlogin())
 # default temp folder for en-/decrypting
 TMPDIR="./tmp"
 
