@@ -155,6 +155,7 @@ def encrypt():
 
     # clean tmp
     shutil.rmtree(TMPDIR)
+    cleanFiles()
 
 #======================================================
 def encrypt_file(source):
@@ -195,7 +196,6 @@ def encrypt_file(source):
 
     # clean tmp
     removeFile(keyfile)
-    cleanFiles()
 
 #======================================================
 def decrypt(in_dir, out_dir):
