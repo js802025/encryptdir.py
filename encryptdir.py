@@ -298,8 +298,9 @@ def _getHashFromFile(file):
 #======================================================
 def getNewFiles():
     for sourcefile in os.listdir(INPUTDIR):
-        if not os.path.exists('{0}/{1}'.format(OUTPUTDIR, getEncryptedOutputFileName(sourcefile))):
-            yield sourcefile
+        if not sourcefile[0] == ".":
+            if not os.path.exists('{0}/{1}'.format(OUTPUTDIR, getEncryptedOutputFileName(sourcefile))):
+                yield sourcefile
 
 #======================================================
 def getDecryptingFiles(dir):
